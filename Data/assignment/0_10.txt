@@ -1,0 +1,11 @@
+0
+0	Black Myth Wukong là một tựa game nhập vai hoàn toàn mới, đang gây sốt trong cộng đồng game thủ và tạo ra một làn sóng hứng khởi khổng lồ	D:/Tool/ToolYoutube/Data/audio	Audio1.wav	False	False	Not_Done
+1	To Kill a Mockingbird (Giết con chim nhại) nằm trong top những cuốn sách nước ngoài hay, bạn không nên bỏ qua tác phẩm Giết con chim nhại	D:/Tool/ToolYoutube/Data/audio	Audio2.wav	False	False	Not_Done
+2	Cách chế biến làm đế bánh pizza: Cho 225 gram bột mì, 150ml nước và 3 gram men nở  vào âu lớn	D:/Tool/ToolYoutube/Data/audio	Audio3.wav	False	False	Not_Done
+3	Địa đạo Củ Chi ở TPHồ Chí Minh, Việt Nam, là hệ thống địa đạo chiến tranh ấn tượng, là minh chứng cho lòng kiên trì và sáng tạo của nhân dân Việt Nam trong cuộc chiến tranh, thu hút du khách quốc tế tìm hiểu về lịch sử đặc biệt này	D:/Tool/ToolYoutube/Data/audio	Audio4.wav	False	False	Not_Done
+4	Avatar 2 - Dòng chảy của nước là bộ phim hành động Mỹ hay nhất thuộc thể loại khoa học viễn tưởng	D:/Tool/ToolYoutube/Data/audio	Audio5.wav	False	False	Not_Done
+5	Bố già - The Godfather, bộ phim đưa người xem tới những góc khuất của thế giới mafia tàn độc với cảnh quay vô cùng sinh động, hấp dẫn và nhiều phen khiến người xem phải thót tim	D:/Tool/ToolYoutube/Data/audio	Audio6.wav	False	False	Not_Done
+6	Cuốn theo chiều gió - Gone With the Wind (1939) phim kể về câu chuyện về một phụ nữ quý tộc miền Nam, vật lộn tìm cách sống sót qua cơn bão táp của cuộc nội chiến và thời kỳ tái thiết	D:/Tool/ToolYoutube/Data/audio	Audio7.wav	False	False	Not_Done
+7	Để làm phần vỏ bánh su kem ta cần cho vào nồi với 100ml sữa tươi không đường, 100ml nước, 60gram bơ lạt, 20ml sữa đặc, 1gram muối, 1/2 muỗng canh tinh chất vani	D:/Tool/ToolYoutube/Data/audio	Audio8.wav	False	False	Not_Done
+8	Tía má đang mần chi vậy Sao con gọi điện hoài mà hỏng có được	D:/Tool/ToolYoutube/Data/audio	Audio9.wav	False	False	Not_Done
+9	Mới nhất là trường hợp của nhân vật Kazuha trong Genshin Impact được so sánh có nhiều nét tương đồng với vị tướng Yasuo trong liên minh huyền thoại	D:/Tool/ToolYoutube/Data/audio	Audio10.wav	False	False	Not_Done
