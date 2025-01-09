@@ -8,6 +8,7 @@ from PySide6.QtCore import Qt
 from PySide6.QtGui import QColor, QFont
 
 from Main import dictionary
+from utilizes.sql_handle import return_if_exist_database
 from utilizes.txt_handler import read_json
 from utilizes.var_manager import variable_manager as vm
 from Main.back_end import eu
@@ -65,7 +66,7 @@ class MainUI(QMainWindow):
         info_main_layout.addWidget(QLabel("Tổng: "), 0, 0)
         sum_index = QLabel(str(vm.set_ivm("sum_index", 0)))
         info_main_layout.addWidget(sum_index, 0, 1)
-        vm.int_var_changed.connect(sum_index.setText(int(vm.get_ivm_value("sum_index"))))
+        # vm.int_var_changed.connect(sum_index.setText(int(vm.get_ivm_value("sum_index"))))
         info_main_layout.addWidget(QLabel("Đã làm: "), 1, 0)
         info_main_layout.addWidget(QLabel("1"), 1, 1)
 
@@ -280,6 +281,44 @@ class MainUI(QMainWindow):
 
         main_login_layout.addWidget(QLabel("Login Server"), 2, 0)
 
+        login_server = QWidget()
+        login_server_layout = QGridLayout()
+        login_server.setStyleSheet(
+            "background-color: #F0F0F0; border: 2px solid #F0F0F0; border-radius: 10px; font: 16pt 'Times New Roman';")
+        login_server.setLayout(login_server_layout)
+        main_login_layout.addWidget(login_server, 3, 0)
+
+        login_server_layout.addWidget(QLabel("IP Port:"), 0, 0)
+        self.ip_port = QLineEdit(vm.set_svm("joinserver", "107.98.73.31:3306"))
+        self.ip_port.setStyleSheet(
+            "background-color: white; border: 1px solid #D0D0D0; border-radius: 0px; font: 16pt 'Times New Roman';")
+        login_server_layout.addWidget(self.ip_port, 0, 1)
+
+        login_server_layout.addWidget(QLabel("Task ID:"), 1, 0)
+        self.task_id = QLineEdit(str(vm.set_ivm('task_id', 1)))
+        self.task_id.setStyleSheet(
+            "background-color: white; border: 1px solid #D0D0D0; border-radius: 0px; font: 16pt 'Times New Roman';")
+        login_server_layout.addWidget(self.task_id, 1, 1)
+
+        login_server_layout.addWidget(QLabel("Username:"), 2, 0)
+        self.username = QLineEdit(vm.set_svm('user', 'root'))
+        self.username.setStyleSheet(
+            "background-color: white; border: 1px solid #D0D0D0; border-radius: 0px; font: 16pt 'Times New Roman';")
+        login_server_layout.addWidget(self.username, 2, 1)
+
+        login_server_layout.addWidget(QLabel("Password:"), 3, 0)
+        self.password = QLineEdit(vm.set_svm('password', '03042001'))
+        self.password.setStyleSheet(
+            "background-color: white; border: 1px solid #D0D0D0; border-radius: 0px; font: 16pt 'Times New Roman';")
+        login_server_layout.addWidget(self.password, 3, 1)
+
+        server_button = QPushButton("Login")
+        server_button.setStyleSheet(button_style)
+        server_button.setMaximumWidth(100)
+        login_server_layout.addWidget(server_button, 4, 1)
+
+        server_button.clicked.connect(self.get_data_server)
+
         self.notebook.setCurrentIndex(1)
 
         self.resize(400, 300)
@@ -332,6 +371,27 @@ class MainUI(QMainWindow):
                     return
             if eu.get_data_local():
                 self.notebook.setCurrentIndex(0)
+
+    def get_data_server(self):
+        vm.set_svm_value('joinserver', self.ip_port.text())
+        vm.set_ivm_value('task_id', int(self.task_id.text()))
+        vm.set_svm_value('user', self.username.text())
+        vm.set_svm_value('password', self.password.text())
+
+        input_ip = vm.get_svm_value('joinserver')
+        user = vm.get_svm_value('user')
+        password = vm.get_svm_value('password')
+        input_ip, port = input_ip.split(':')
+        port = int(port)
+
+        eu.my_sql = return_if_exist_database('datateam', user=user, password=password, host=input_ip, port=port)
+
+        if not eu.my_sql:
+            if self.messagebox("Kết nối lỗi!\nContact: lien.dinh hoặc cuong.quoc"):
+                return
+
+
+        self.notebook.setCurrentIndex(0)
 
     def messagebox(self, value):
         msg = QMessageBox(self)

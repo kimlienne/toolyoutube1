@@ -12,6 +12,12 @@ class EngineerUnderground:
         self.current_index = 0
         self.current_sentence = SentenceInfo(0, '', '', '', False, False, 'Not_Done')
 
+        self.start_time = None
+        self.end_time = None
+        self.my_sql = None
+        self.user_info = None
+        self.assignment_info = None
+
     def get_data_local(self):
         folder_path = Path(f'{os.path.dirname(vm.get_svm("file_ans"))}/assignment')
         file_name = f"{vm.get_ivm_value('start_index')}_{vm.get_ivm_value('end_index')}.txt"
@@ -48,6 +54,11 @@ class EngineerUnderground:
         self.current_sentence = self.list_sentence[self.current_index]
         vm.set_ivm_value("sum_index", vm.get_ivm_value("end_index") - vm.get_ivm_value("start_index") + 1)
         return True
+
+    def get_task_info(self):
+        # print('Get task info')
+        result = self.get_user_info()
+        self.update_user_task_info(result)
 
 
 eu = EngineerUnderground()
